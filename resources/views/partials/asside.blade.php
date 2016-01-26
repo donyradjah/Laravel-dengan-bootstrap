@@ -31,6 +31,9 @@
                 <a href="/buku"><i class="fa fa-table fa-fw"></i> Buku</a>
             </li>
             <li>
+                <a href="/anggota"><i class="fa fa-user fa-fw"></i> Anggota</a>
+            </li>
+            <li>
                 <a href="../pages/tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
             </li>
             <li>

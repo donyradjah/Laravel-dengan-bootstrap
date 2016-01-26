@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableBuku extends Migration
+class CreateAnggotaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateTableBuku extends Migration
      */
     public function up()
     {
-        Schema::create('buku', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('judul');
-            $table->string('pengarang');
-            $table->string('penerbit');
-            $table->string('kategori');
-            $table->string('status');
+        Schema::create('anggota', function (Blueprint $table) {
+            $table->string('id');
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('kota');
+            $table->string('no_telp');
+            $table->date('tgl_lahir');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateTableBuku extends Migration
      */
     public function down()
     {
-        Schema::drop('buku');
+        Schema::drop('anggota');
     }
 }

@@ -42,6 +42,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
                 'pengarang' => e($data['pengarang']),
                 'penerbit'  => e($data['penerbit']),
                 'kategori'  => e($data['kategori']),
+                'status'    => e($data['status']),
             ]
         );
     }
@@ -58,6 +59,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
                 'pengarang' => e($data['pengarang']),
                 'penerbit'  => e($data['penerbit']),
                 'kategori'  => e($data['kategori']),
+                'status'    => e($data['status']),
             ]
         );
     }

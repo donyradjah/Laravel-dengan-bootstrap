@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Domain\Repositories\AnggotaRepository;
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class AnggotaController extends Controller
+{
+    protected $anggota;
+
+    public function __construct(AnggotaRepository $anggotaRepository)
+    {
+        $this->anggota = $anggotaRepository;
+    }
+
+    public function index($limit = 10)
+    {
+        return view('partials.anggota', [
+            'anggotas' => $this->anggota->getBypage($limit),
+        ]);
+    }
+
+    public function show($id)
+    {
+        return $this->anggota->find($id);
+    }
+
+    public function store(Request $request)
+    {
+        return $this->anggota->create($request->all());
+    }
+
+    public function update($id, Request $request)
+    {
+        return $this->anggota->update($id, $request->all());
+    }
+
+    public function destroy($id)
+    {
+        return $this->anggota->delete($id);
+    }
+}
