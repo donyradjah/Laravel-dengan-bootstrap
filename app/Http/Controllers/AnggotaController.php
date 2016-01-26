@@ -31,6 +31,13 @@ class AnggotaController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        return view('partials.anggota.edit', [
+            'data' => $this->anggota->find($id),
+        ]);
+    }
+
     public function store(Request $request)
     {
         return $this->anggota->create($request->all());

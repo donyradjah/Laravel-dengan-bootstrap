@@ -58,7 +58,9 @@
                                         <tr>
                                             <td colspan="2"></td>
                                             <td>
-                                                <button type="button" class="btn btn-outline btn-info">Edit</button>
+                                                <button type="button" class="btn btn-outline btn-info"
+                                                        onclick="location.href='/edit-buku/{{ $data->id }}}';">Edit
+                                                </button>
                                                 <button type="button" class="btn btn-outline btn-primary"
                                                         onclick="location.href='/buku';">Kembali
                                                 </button>

@@ -38,7 +38,9 @@
                                             <button type="button" class="btn btn-outline btn-primary"
                                                     onclick="location.href='/buku/{{ $buku->id }}';">Detail
                                             </button>
-                                            <button type="button" class="btn btn-outline btn-info">Edit</button>
+                                            <button type="button" class="btn btn-outline btn-info"
+                                                    onclick="location.href='/edit-buku/{{ $buku->id }}';">Edit
+                                            </button>
                                             <button type="button" class="btn btn-outline btn-danger"
                                                     onclick="location.href='/hapus-buku/{{ $buku->id }}';">Delete
                                             </button>

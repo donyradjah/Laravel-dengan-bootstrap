@@ -37,6 +37,13 @@ class BukuController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        return view('partials.buku.edit', [
+            'data' => $this->buku->find($id),
+        ]);
+    }
+
     public function update($id, Request $request)
     {
         return $this->buku->update($id, $request->all());
