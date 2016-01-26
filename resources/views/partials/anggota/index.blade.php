@@ -39,7 +39,9 @@
                                                     onclick="location.href='/anggota/{{ $anggota->id }}';">Detail
                                             </button>
                                             <button type="button" class="btn btn-outline btn-info">Edit</button>
-                                            <button type="button" class="btn btn-outline btn-danger">Delete</button>
+                                            <button type="button" class="btn btn-outline btn-danger"
+                                                    onclick="location.href='/hapus-anggota/{{ $anggota->id }}';">Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach

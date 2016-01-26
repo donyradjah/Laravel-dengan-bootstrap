@@ -25,7 +25,11 @@ Route::put('buku/{id}', 'BukuController@update');
 
 Route::delete('buku/{id}', 'BukuController@destroy');
 
+Route::get('hapus-buku/{id}', 'BukuController@destroy');
+
 Route::resource('anggota', 'AnggotaController');
+
+Route::get('hapus-anggota/{id}', 'AnggotaController@destroy');
 
 //Route::group(['middleware' => ['web']], function () {
 //    //
