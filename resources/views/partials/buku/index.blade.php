@@ -24,6 +24,7 @@
                                     <th>Pengarang</th>
                                     <th>Penerbit</th>
                                     <th>Kategori</th>
+                                    <th>Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -33,6 +34,13 @@
                                         <td>{{ $buku->pengarang }}</td>
                                         <td>{{ $buku->penerbit }}</td>
                                         <td>{{ $buku->kategori }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline btn-primary"
+                                                    onclick="location.href='/buku/{{ $buku->id }}';">Detail
+                                            </button>
+                                            <button type="button" class="btn btn-outline btn-info">Edit</button>
+                                            <button type="button" class="btn btn-outline btn-danger">Delete</button>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

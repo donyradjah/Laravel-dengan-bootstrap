@@ -19,14 +19,16 @@ class AnggotaController extends Controller
 
     public function index($limit = 10)
     {
-        return view('partials.anggota', [
+        return view('partials.anggota.index', [
             'anggotas' => $this->anggota->getBypage($limit),
         ]);
     }
 
     public function show($id)
     {
-        return $this->anggota->find($id);
+        return view('partials.anggota.detail', [
+            'data' => $this->anggota->find($id),
+        ]);
     }
 
     public function store(Request $request)

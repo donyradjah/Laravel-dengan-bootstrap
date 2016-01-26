@@ -20,7 +20,7 @@ class BukuController extends Controller
 
     public function index($limit = 10)
     {
-        return view('partials.buku', [
+        return view('partials.buku.index', [
             'bukus' => $this->buku->getByPage($limit),
         ]);
     }
@@ -32,7 +32,9 @@ class BukuController extends Controller
 
     public function show($id)
     {
-        return $this->buku->find($id);
+        return view('partials.buku.detail', [
+            'data' => $this->buku->find($id),
+        ]);
     }
 
     public function update($id, Request $request)

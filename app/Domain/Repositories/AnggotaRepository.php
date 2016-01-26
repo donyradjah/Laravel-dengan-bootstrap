@@ -28,12 +28,13 @@ class AnggotaRepository extends AbstractRepository implements Crudable, Paginabl
     public function create(array $data)
     {
         return parent::create([
-                'id'        => e($data['id']),
-                'nama'      => e($data['nama']),
-                'alamat'    => e($data['alamat']),
-                'kota'      => e($data['kota']),
-                'no_telp'   => e($data['no_telp']),
-                'tgl_lahir' => e($data['tgl_lahir']),
+                'id'         => e($data['id']),
+                'nama'       => e($data['nama']),
+                'alamat'     => e($data['alamat']),
+                'kota'       => e($data['kota']),
+                'no_telp'    => e($data['no_telp']),
+                'tgl_lahir'  => e($data['tgl_lahir']),
+                'tgl_daftar' => date('Y/m/d'),
             ]
         );
     }

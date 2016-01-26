@@ -18,5 +18,5 @@ class Buku extends Model
     /**
      * @var array
      */
-    protected $fillable = ['judul', 'pengarang', 'penerbit', 'kategori', 'status'];
+    protected $fillable = ['judul', 'pengarang', 'penerbit', 'kategori', 'status', 'tahun_terbit', 'bahasa'];
 }

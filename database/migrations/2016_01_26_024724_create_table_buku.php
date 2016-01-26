@@ -19,6 +19,8 @@ class CreateTableBuku extends Migration
             $table->string('penerbit');
             $table->string('kategori');
             $table->string('status');
+            $table->integer('tahun_terbit');
+            $table->string('bahasa');
             $table->timestamps();
         });
     }

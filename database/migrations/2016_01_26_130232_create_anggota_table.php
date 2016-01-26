@@ -19,6 +19,7 @@ class CreateAnggotaTable extends Migration
             $table->string('kota');
             $table->string('no_telp');
             $table->date('tgl_lahir');
+            $table->date('tgl_daftar');
             $table->timestamps();
         });
     }

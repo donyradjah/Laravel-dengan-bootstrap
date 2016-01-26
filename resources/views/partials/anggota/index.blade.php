@@ -24,7 +24,7 @@
                                     <th>Alamat</th>
                                     <th>Kota</th>
                                     <th>No Telpon</th>
-                                    <th>Tanggal Lahir</th>
+                                    <th>Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -34,7 +34,13 @@
                                         <td>{{ $anggota->alamat }}</td>
                                         <td>{{ $anggota->kota }}</td>
                                         <td>{{ $anggota->no_telp }}</td>
-                                        <td>{{ $anggota->tgl_lahir }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline btn-primary"
+                                                    onclick="location.href='/anggota/{{ $anggota->id }}';">Detail
+                                            </button>
+                                            <button type="button" class="btn btn-outline btn-info">Edit</button>
+                                            <button type="button" class="btn btn-outline btn-danger">Delete</button>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
