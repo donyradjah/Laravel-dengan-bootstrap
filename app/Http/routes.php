@@ -19,6 +19,10 @@ Route::get('buku', 'BukuController@index');
 
 Route::get('buku/{id}', 'BukuController@show');
 
+Route::get('create-buku', function () {
+    return view('partials.buku.create');
+});
+
 Route::post('buku', 'BukuController@store');
 
 Route::get('edit-buku/{id}', 'BukuController@edit');
@@ -29,6 +33,7 @@ Route::delete('buku/{id}', 'BukuController@destroy');
 
 Route::get('hapus-buku/{id}', 'BukuController@destroy');
 
+// Anggota
 Route::resource('anggota', 'AnggotaController');
 
 Route::get('hapus-anggota/{id}', 'AnggotaController@destroy');

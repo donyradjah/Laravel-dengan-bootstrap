@@ -37,7 +37,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      */
     public function create(array $data)
     {
-        return parent::create([
+        parent::create([
                 'judul'        => e($data['judul']),
                 'pengarang'    => e($data['pengarang']),
                 'penerbit'     => e($data['penerbit']),
@@ -47,6 +47,8 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
                 'bahasa'       => e($data['bahasa']),
             ]
         );
+
+        return redirect('/buku');
     }
 
     /**
@@ -56,7 +58,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      */
     public function update($id, array $data)
     {
-        return parent::update($id, [
+        parent::update($id, [
                 'judul'        => e($data['judul']),
                 'pengarang'    => e($data['pengarang']),
                 'penerbit'     => e($data['penerbit']),
@@ -66,6 +68,8 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
                 'bahasa'       => e($data['bahasa']),
             ]
         );
+
+        return redirect('/buku');
     }
 
     /**
@@ -74,7 +78,9 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      */
     public function delete($id)
     {
-        return parent::delete($id);
+        parent::delete($id);
+
+        return redirect('/buku');
     }
 
     /**
