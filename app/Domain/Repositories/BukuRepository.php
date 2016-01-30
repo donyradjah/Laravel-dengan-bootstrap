@@ -99,6 +99,6 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      */
     public function getByPage($limit = 1000, array $columns = ['*'])
     {
-        return parent::getByPage($limit, $columns);
+        return $this->model->get();
     }
 }
