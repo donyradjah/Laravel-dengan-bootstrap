@@ -12,7 +12,9 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <button><i class="glyphicon glyphicon-plus-sign"></i> Tambah Anggota</button>
+                    <button onclick="location.href='/create-anggota';"><i class="glyphicon glyphicon-plus-sign"></i> Tambah
+                        Anggota
+                    </button>
                 </div>
                 <div class="panel-body">
                     <div class="dataTable_wrapper">

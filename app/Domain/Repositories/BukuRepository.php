@@ -37,7 +37,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      */
     public function create(array $data)
     {
-        parent::create([
+        return parent::create([
                 'judul'        => e($data['judul']),
                 'pengarang'    => e($data['pengarang']),
                 'penerbit'     => e($data['penerbit']),
@@ -48,7 +48,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
             ]
         );
 
-        return redirect('/buku');
+//        return redirect('/buku');
     }
 
     /**
@@ -58,7 +58,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      */
     public function update($id, array $data)
     {
-        parent::update($id, [
+        return parent::update($id, [
                 'judul'        => e($data['judul']),
                 'pengarang'    => e($data['pengarang']),
                 'penerbit'     => e($data['penerbit']),
@@ -69,7 +69,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
             ]
         );
 
-        return redirect('/buku');
+//        return redirect('/buku');
     }
 
     /**
@@ -78,9 +78,9 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      */
     public function delete($id)
     {
-        parent::delete($id);
+        return parent::delete($id);
 
-        return redirect('/buku');
+//        return redirect('/buku');
     }
 
     /**
@@ -97,7 +97,7 @@ class BukuRepository extends AbstractRepository implements Crudable, Paginable, 
      * @param array $columns
      * @return \Illuminate\Pagination\Paginator
      */
-    public function getByPage($limit = 10, array $columns = ['*'])
+    public function getByPage($limit = 1000, array $columns = ['*'])
     {
         return parent::getByPage($limit, $columns);
     }

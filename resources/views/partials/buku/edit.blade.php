@@ -19,7 +19,7 @@
                     @if (count($data) > 0)
                         <div class="row">
                             <div class="col-lg-6">
-                                <form action="/buku/{{ $data->id }}" method="post">
+                                <form id="Form" action="/buku/{{ $data->id }}">
                                     <div class="form-group">
                                         <label>Judul</label>
                                         <label>:</label>
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="form-group">
                                         {{--{{ csrf_field() }}--}}
-                                        {{ method_field('PUT') }}
+                                        {{--{{ method_field('PUT') }}--}}
 
                                         <input class="btn btn-outline btn-info" type="submit" value="Simpan">
                                         {{--onclick="location.href='/buku/{{ $data->id }}}';">Simpan--}}
@@ -84,6 +84,45 @@
             <!-- /.panel -->
         </div>
     </div>
+
+    <script src="{!! asset('bower_components/jquery/dist/jquery.min.js') !!}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#Form").submit(function (event) {
+                event.preventDefault();
+
+                var action = $("#Form").attr('action');
+
+                var $form = $(this),
+                        judul = $form.find("input[name='judul']").val(),
+                        pengarang = $form.find("input[name='pengarang']").val(),
+                        penerbit = $form.find("input[name='penerbit']").val(),
+                        kategori = $form.find("input[name='kategori']").val(),
+                        status = $form.find("input[name='status']").val(),
+                        tahun_terbit = $form.find("input[name='tahun_terbit']").val(),
+                        bahasa = $form.find("input[name='bahasa']").val();
+
+                $.ajax({
+                    method: "PUT",
+                    url: action,
+                    data: {
+                        judul: judul,
+                        pengarang: pengarang,
+                        penerbit: penerbit,
+                        kategori: kategori,
+                        status: status,
+                        tahun_terbit: tahun_terbit,
+                        bahasa: bahasa
+                    }
+                })
+                        .done(function (data) {
+                            window.alert(data.result.message);
+                            $("#page-wrapper").load("/buku");
+                            $('form').hide();
+                        });
+            });
+        });
+    </script>
 
     <!-- /.row -->
 @endsection

@@ -11,9 +11,29 @@
 |
 */
 
+// Auth
 Route::get('/', function () {
+    return redirect('dashboard');
+
+//    return bcrypt('admin');
+});
+Route::get('/login', function () {
+    return view('partials.auth.login');
+});
+
+Route::group(['namespace' => 'Auth', 'prefix' => 'api/v1'], function () {
+    // Authentication routes...
+    Route::get('get-login', 'AuthController@getLogin');
+    Route::get('post-login', 'AuthController@getLogin');
+    Route::post('post-login', 'AuthController@postLogin');
+    Route::get('logout', 'AuthController@getLogout');
+});
+
+Route::get('/dashboard', function () {
     return view('partials.content');
 });
+
+// Buku
 
 Route::get('buku', 'BukuController@index');
 
@@ -33,13 +53,11 @@ Route::delete('buku/{id}', 'BukuController@destroy');
 
 Route::get('hapus-buku/{id}', 'BukuController@destroy');
 
+Route::post('/ajax-get', 'BukuController@ajaxGet');
+
 // Anggota
 Route::resource('anggota', 'AnggotaController');
 
 Route::get('hapus-anggota/{id}', 'AnggotaController@destroy');
 
 Route::get('edit-anggota/{id}', 'AnggotaController@edit');
-
-//Route::group(['middleware' => ['web']], function () {
-//    //
-//});

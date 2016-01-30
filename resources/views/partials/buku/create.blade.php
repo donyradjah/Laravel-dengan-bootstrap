@@ -17,7 +17,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form action="/buku" method="post">
+                            <form id="Form">
                                 <div class="form-group">
                                     <label>Judul</label>
                                     <label>:</label>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="form-group">
 
-                                    <input class="btn btn-outline btn-info" type="submit" value="Simpan">
+                                    <input class="btn btn-outline btn-info" type="submit" id="Submit" value="Simpan">
                                     {{--onclick="location.href='/buku/{{ $data->id }}}';">Simpan--}}
                                     <button type="button" class="btn btn-outline btn-primary"
                                             onclick="location.href='/buku';">Kembali
@@ -73,4 +73,48 @@
     </div>
 
     <!-- /.row -->
+
+    <script src="{!! asset('bower_components/jquery/dist/jquery.min.js') !!}"></script>
+    <script>
+        $(document).ready(function () {
+//            $('#dataTables-example').DataTable({
+//                responsive: true
+//            });
+            $("#Form").submit(function (event) {
+
+                event.preventDefault();
+//                $.post('/ajax-get', function (data) {
+//                    console.log(data);
+//                });
+                var $form = $(this),
+                        judul = $form.find("input[name='judul']").val(),
+                        pengarang = $form.find("input[name='pengarang']").val(),
+                        penerbit = $form.find("input[name='penerbit']").val(),
+                        kategori = $form.find("input[name='kategori']").val(),
+                        status = $form.find("input[name='status']").val(),
+                        tahun_terbit = $form.find("input[name='tahun_terbit']").val(),
+                        bahasa = $form.find("input[name='bahasa']").val();
+
+                var posting = $.post('/buku', {
+                    judul: judul,
+                    pengarang: pengarang,
+                    penerbit: penerbit,
+                    kategori: kategori,
+                    status: status,
+                    tahun_terbit: tahun_terbit,
+                    bahasa: bahasa
+                });
+
+                // Put the results in a div
+                posting.done(function (data) {
+//                    console.log(data);
+                    window.alert(data.result.message);
+//                    window.location = '/buku';
+                    $("#page-wrapper").load("/buku");
+                    $('form').hide();
+                });
+            });
+        });
+    </script>
+
 @endsection

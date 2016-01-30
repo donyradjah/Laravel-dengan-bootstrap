@@ -21,7 +21,7 @@ class BukuController extends Controller
     public function index($limit = 10)
     {
         return view('partials.buku.index', [
-            'bukus' => $this->buku->getByPage($limit),
+            'bukus' => $this->buku->getByPage(),
         ]);
     }
 
@@ -53,4 +53,15 @@ class BukuController extends Controller
     {
         return $this->buku->delete($id);
     }
+
+    public function ajaxGet(Request $request)
+    {
+        $response = array(
+            'judul'     => $request->judul,
+            'pengarang' => $request->pengarang,
+        );
+        return response()->json($response);
+//        return response()->json(['response' => 'This is get method']);
+    }
+
 }
